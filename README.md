@@ -9,9 +9,13 @@ Space Axolat é um jogo feito para a Enchant Games Jam. Um axolote estava navega
 - Daniel Lima - Programador
 - Loofie - Game Arte
 
-## Studio de Desemvolvimento Indie
-WisePotion
-<br>
-<a href="https://www.instagram.com/wisepotion/" target="_blanck">Instagram</a>
-<a href="https://wisepotion.itch.io/" target="_blanck">Itch.io/a>
+## WisePotion
+<ul>
+<li>
+  <a href="https://www.instagram.com/wisepotion/" target="_blanck">Instagram</a>
+</li>
+<li>
+  <a href="https://wisepotion.itch.io/" target="_blanck">Itch.io</a>
+</li>
+</ul>
 
