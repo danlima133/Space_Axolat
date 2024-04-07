@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var sprite = $sprite
 
+onready var dash = $dash
 onready var shape = $shape
 
 export(int) var velocity = 100
