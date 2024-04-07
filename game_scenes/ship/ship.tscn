@@ -92,8 +92,8 @@ room_default = "Teste"
 script = ExtResource( 2 )
 maxOxygen = 50
 playerOxygenData = {
-"timerMax": 3,
-"timerMin": 1,
+"timerMax": 1,
+"timerMin": 2,
 "valueMax": 5,
 "valueMin": 3
 }
