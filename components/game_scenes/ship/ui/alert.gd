@@ -6,9 +6,11 @@ const mensagemTemplate = preload("res://components/game_scenes/ship/ui/alerts_ob
 
 var hasAlert = false
 
-func alert(mensage:Dictionary):
+func alert(mensage:Dictionary, isCancel = false):
 	if conatiner.get_child_count() > 0:
-		return false
+		if !isCancel:
+			return false
+		conatiner.get_child(0).queue_free()
 	
 	hasAlert = true
 	
@@ -18,7 +20,7 @@ func alert(mensage:Dictionary):
 	alert.get_node("subTitle").text = mensage["sub_title"]
 	
 	alert.get_node("anim").play("alert")
-	alert.get_node("anim").connect("animation_finished", self, "alertFinished", [ alert ])
+	if isCancel: alert.get_node("anim").connect("animation_finished", self, "alertFinished", [ alert ])
 	
 	return true
 

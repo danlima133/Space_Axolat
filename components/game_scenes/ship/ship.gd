@@ -41,7 +41,7 @@ func changeRoom(id:String) -> bool:
 		transition.executeTransition("Fade", true, 0.5)
 		data_share.current_room = id
 		
-		alert.alert({"title": roomData["roomName"], "sub_title": roomData["roomTitle"]})
+		alert.alert({"title": roomData["roomName"], "sub_title": roomData["roomTitle"]}, true)
 		
 		return true
 	return false
