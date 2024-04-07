@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 onready var sprite = $sprite
-onready var dash = $dash
+
+onready var shape = $shape
 
 export(int) var velocity = 100
 
@@ -13,8 +14,10 @@ func animMove():
 		sprite.play("run")
 		if dir.x > 0:
 			sprite.flip_h = false
+			shape.position.x = -1
 		elif dir.x < 0:
 			sprite.flip_h = true
+			shape.position.x = 1
 	else:
 		sprite.play("idle")
 
