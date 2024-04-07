@@ -2,11 +2,14 @@ extends KinematicBody2D
 class_name Player
 
 onready var sprite = $sprite
+
+onready var dash = $dash
 onready var shape = $shape
 
 export(int) var velocity = 100
 
 var dir = Vector2.ZERO
+
 var ship
 var dataShare
 var attetionPlayer:PlayerAttetion
@@ -40,11 +43,17 @@ func animMove():
 	else:
 		sprite.play("idle")
 
-func oxygenState(state, shipData:ShipData):
-	print(state)
-	if state == 0:
-		print("No oxygen")
+func getDirPlayer() -> int:
+	if sprite.flip_h == true:
+		return 1
+	return (-1)
 
-func noOxygen():
-	if !dataShare.hasOxygen:
-		queue_free()
+func _physics_process(delta):
+	dir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown").normalized()
+	dirInput = dir
+	dir *= velocity
+	
+	animMove()
+	
+	if !dash.has_node("move"):
+		dir = move_and_slide(dir)

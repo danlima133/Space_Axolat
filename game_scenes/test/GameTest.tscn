@@ -6,9 +6,13 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 12.5 )
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 31 )
+
 [node name="GameTest" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
+
 position = Vector2( 21, 79 )
 
 [node name="changeScene" parent="." instance=ExtResource( 2 )]
@@ -16,4 +20,5 @@ position = Vector2( 5, 78 )
 room_id = "Teste2"
 
 [node name="shape" type="CollisionShape2D" parent="changeScene"]
+
 shape = SubResource( 1 )
