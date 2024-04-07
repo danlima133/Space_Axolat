@@ -21,11 +21,6 @@ var current_room:String
 var playerCurrentOxygen:int
 var hasOxygen = true
 
-func _input(event):
-	if event is InputEventKey:
-		if event.pressed and event.scancode == KEY_A:
-			addOxygen(20)
-
 func _ready():
 	playerCurrentOxygen = maxOxygen
 	setTimeToOxygen()
