@@ -1,24 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://components/player/scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://components/game_scenes/ship/component/changeScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://components/game_scenes/ship/component/oxygenCore/oxygenCore.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 12.5 )
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6, 31 )
+extents = Vector2( 4, 11 )
 
 [node name="GameTest" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-
-position = Vector2( 21, 79 )
+position = Vector2( 302, 87 )
 
 [node name="changeScene" parent="." instance=ExtResource( 2 )]
-position = Vector2( 5, 78 )
-room_id = "Teste2"
+position = Vector2( 316, 87 )
+room_id = "Teste"
 
 [node name="shape" type="CollisionShape2D" parent="changeScene"]
-
 shape = SubResource( 1 )
+
+[node name="oxygenCore" parent="." instance=ExtResource( 3 )]
+position = Vector2( 22, 22 )

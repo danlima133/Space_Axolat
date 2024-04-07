@@ -8,6 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://components/player/script/player.gd"
+}, {
+"base": "Node",
+"class": "PlayerAttetion",
+"language": "GDScript",
+"path": "res://components/game_scenes/ship/component/attetion_player/attetionPlayer.gd"
+}, {
+"base": "Node",
+"class": "Ship",
+"language": "GDScript",
+"path": "res://components/game_scenes/ship/ship.gd"
+}, {
+"base": "Node",
+"class": "ShipData",
+"language": "GDScript",
+"path": "res://components/game_scenes/ship/data/dataShare.gd"
+} ]
+_global_script_class_icons={
+"Player": "",
+"PlayerAttetion": "",
+"Ship": "",
+"ShipData": ""
+}
+
 [application]
 
 config/name="Space Axolotl"

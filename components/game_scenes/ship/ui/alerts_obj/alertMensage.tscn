@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "alert"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sperator:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("subTitle:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="alertMensage" type="VBoxContainer"]
+anchor_right = 0.719
+anchor_bottom = 0.222
+margin_right = -0.0800171
+margin_bottom = 0.0399971
+custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="title" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 230.0
+margin_bottom = 14.0
+text = "Alerta"
+align = 1
+
+[node name="sperator" type="HSeparator" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 16.0
+margin_right = 230.0
+margin_bottom = 20.0
+
+[node name="subTitle" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 22.0
+margin_right = 230.0
+margin_bottom = 36.0
+text = "O oxigenio está acabando"
+align = 1
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/alert = SubResource( 1 )
