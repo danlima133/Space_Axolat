@@ -7,9 +7,20 @@ onready var shape = $shape
 export(int) var velocity = 100
 
 var dir = Vector2.ZERO
+var ship
+var dataShare
+var attetionPlayer:PlayerAttetion
+
+func _enter_tree():
+	ship = get_tree().get_nodes_in_group("Ship")[0]
+	ship.getDataShare().connect("oxygenPlayerState", self, "oxygenState", [ ship.getDataShare() ])
+	
+	dataShare = ship.get_node("dataShare")
+	
+	attetionPlayer = ship.get_node("attetionPlayer")
+	attetionPlayer.connect("attetionFinished", self, "noOxygen")
 
 func _physics_process(delta):
-	
 	dir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown").normalized()
 	dir *= velocity
 	
@@ -28,3 +39,12 @@ func animMove():
 			shape.position.x = 1
 	else:
 		sprite.play("idle")
+
+func oxygenState(state, shipData:ShipData):
+	print(state)
+	if state == 0:
+		print("No oxygen")
+
+func noOxygen():
+	if !dataShare.hasOxygen:
+		queue_free()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Enchant Jam Song 02 - Sibilar by Dan Freitas.mp3-cc4fdf4f3da760fb482684d0f23c7732.mp3str"
+
+[deps]
+
+source_file="res://musics/main/Enchant Jam Song 02 - Sibilar by Dan Freitas.mp3"
+dest_files=[ "res://.import/Enchant Jam Song 02 - Sibilar by Dan Freitas.mp3-cc4fdf4f3da760fb482684d0f23c7732.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
