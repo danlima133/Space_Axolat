@@ -6,7 +6,8 @@
 [node name="GameTest" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 47, 75 )
+position = Vector2( 278, 91 )
 
 [node name="changeScene" parent="." instance=ExtResource( 2 )]
-room_id = "Teste2"
+position = Vector2( 299, 91 )
+room_id = "Teste"
