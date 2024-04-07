@@ -6,6 +6,7 @@ onready var dash = $dash
 export(int) var velocity = 100
 
 var dir = Vector2.ZERO
+var dirInput = Vector2.ZERO
 
 func animMove():
 	if dir != Vector2.ZERO:
@@ -24,6 +25,7 @@ func getDirPlayer() -> int:
 
 func _physics_process(delta):
 	dir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown").normalized()
+	dirInput = dir
 	dir *= velocity
 	
 	animMove()
