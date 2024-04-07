@@ -6,7 +6,7 @@ const mensagemTemplate = preload("res://components/game_scenes/ship/ui/alerts_ob
 
 var hasAlert = false
 
-func alert(mensage:Dictionary, isCancel = false):
+func alert(mensage:Dictionary, isCancel = true):
 	if conatiner.get_child_count() > 0:
 		if !isCancel:
 			return false

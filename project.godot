@@ -44,6 +44,7 @@ config/icon="res://icon.png"
 [audio]
 
 default_bus_layout="res://musics/main/music.tres"
+enable_audio_input=true
 
 [display]
 

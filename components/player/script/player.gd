@@ -9,6 +9,7 @@ onready var shape = $shape
 export(int) var velocity = 100
 
 var dir = Vector2.ZERO
+var dirInput = Vector2.ZERO
 
 var ship
 var dataShare
@@ -25,11 +26,13 @@ func _enter_tree():
 
 func _physics_process(delta):
 	dir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown").normalized()
+	dirInput = dir
 	dir *= velocity
 	
 	animMove()
 	
-	dir = move_and_slide(dir)
+	if !dash.has_node("move"):
+		dir = move_and_slide(dir)
 
 func animMove():
 	if dir != Vector2.ZERO:
@@ -48,12 +51,11 @@ func getDirPlayer() -> int:
 		return 1
 	return (-1)
 
-func _physics_process(delta):
-	dir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown").normalized()
-	dirInput = dir
-	dir *= velocity
-	
-	animMove()
-	
-	if !dash.has_node("move"):
-		dir = move_and_slide(dir)
+func oxygenState(state, shipData:ShipData):
+	print(state)
+	if state == 0:
+		print("No oxygen")
+
+func noOxygen():
+	if !dataShare.hasOxygen:
+		queue_free()
