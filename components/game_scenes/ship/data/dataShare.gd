@@ -18,6 +18,7 @@ onready var attetion_player = $"../attetionPlayer"
 onready var alert = $"../UI/base/alert"
 
 var current_room:String
+
 var playerCurrentOxygen:int
 var hasOxygen = true
 
@@ -27,6 +28,8 @@ func _input(event):
 			addOxygen(20)
 
 func _ready():
+	randomize()
+	
 	playerCurrentOxygen = maxOxygen
 	setTimeToOxygen()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://components/game_scenes/ship/ship.gd" type="Script" id=1]
 [ext_resource path="res://components/game_scenes/ship/data/dataShare.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://components/game_scenes/ship/component/attetion_player/attetionPlayer.gd" type="Script" id=5]
 [ext_resource path="res://musics/main/Enchant Jam Song 02 - Sibilar by Dan Freitas.mp3" type="AudioStream" id=6]
 [ext_resource path="res://components/game_scenes/ship/ui/UI.gd" type="Script" id=7]
+[ext_resource path="res://components/game_scenes/ship/component/spawn_oxygen/timerToSpawnOxygen.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -87,6 +88,17 @@ tracks/0/keys = {
 [node name="ship" type="Node" groups=["Ship"]]
 script = ExtResource( 1 )
 room_default = "Teste"
+
+[node name="timerToSpawnOxygen" type="Timer" parent="."]
+one_shot = true
+script = ExtResource( 8 )
+timeMin = 10
+timeMax = 12
+roomsId = [ "teste" ]
+
+[node name="timerToReset" type="Timer" parent="timerToSpawnOxygen"]
+wait_time = 10.0
+one_shot = true
 
 [node name="dataShare" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -176,6 +188,8 @@ margin_bottom = -0.0100021
 
 [node name="currentRoom" type="Node2D" parent="."]
 
+[connection signal="timeout" from="timerToSpawnOxygen" to="timerToSpawnOxygen" method="_on_timerToSpawnOxygen_timeout"]
+[connection signal="timeout" from="timerToSpawnOxygen/timerToReset" to="timerToSpawnOxygen" method="_on_timerToReset_timeout"]
 [connection signal="oxygenPlayerState" from="dataShare" to="dataShare" method="_on_dataShare_oxygenPlayerState"]
 [connection signal="oxygenPlayerState" from="dataShare" to="UI" method="_on_dataShare_oxygenPlayerState"]
 [connection signal="timeout" from="dataShare/oxygenTimer" to="dataShare" method="_on_oxygenTimer_timeout"]
