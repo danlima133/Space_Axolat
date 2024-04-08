@@ -4,13 +4,13 @@ class_name Ship
 export(String) var room_default
 
 const rooms = {
-	"Teste": {"roomName": "Room Right",
+	"room_1": {"roomName": "Room Right",
 			  "roomTitle": "A sala da direita",
-			  "roomData": preload("res://game_scenes/test/GameTest.tscn")
+			  "roomData": preload("res://game_scenes/ship/rooms/room_1.tscn")
 			  },
-	"Teste2": {"roomName": "Room Left",
+	"room_2": {"roomName": "Room Left",
 			  "roomTitle": " A sala da esquerda",
-			  "roomData": preload("res://game_scenes/test/GameTest2.tscn")
+			  "roomData": preload("res://game_scenes/ship/rooms/room_2.tscn")
 			  },
 }
 
