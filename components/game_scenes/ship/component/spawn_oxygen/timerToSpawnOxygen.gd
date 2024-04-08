@@ -10,6 +10,7 @@ onready var timer_to_reset = $timerToReset
 
 var choiceddRoom:String
 var timerToReset = false
+var lastPosOxygen = -1
 
 func _ready():
 	setTime()
@@ -20,22 +21,19 @@ func setTime():
 
 func choiceRoomToSpaw():
 	choiceddRoom = roomsId[int(rand_range(0, roomsId.size()))]
-	print("escolhei ", choiceddRoom)
+	print("escolhi ", choiceddRoom)
+	timer_to_reset.start()
 
-func trySpawOxygen():
+func trySpawOxygen(spawOxygen):
 	if choiceddRoom == "": return
 	
 	if !timerToReset:
 		timer_to_reset.start()
 		timerToReset = true
 	
-	if current_room.get_child(0).has_node(choiceddRoom):
-		var spaw = current_room.get_child(0).get_node(choiceddRoom)
-		spaw.spawnOxygen()
+	if spawOxygen.spawId == choiceddRoom:
+		spawOxygen.spawnOxygen(lastPosOxygen)
 		print("spaw to", choiceddRoom)
-		choiceddRoom = ""
-		setTime()
-		timer_to_reset.stop()
 
 func _on_timerToSpawnOxygen_timeout():
 	choiceRoomToSpaw()
@@ -43,5 +41,6 @@ func _on_timerToSpawnOxygen_timeout():
 func _on_timerToReset_timeout():
 	choiceddRoom = ""
 	timerToReset = false
+	lastPosOxygen = -1
 	setTime()
 	print("reset")
