@@ -19,6 +19,7 @@ onready var current_room = $currentRoom
 
 onready var transition = $UI/base/transition
 onready var alert = $UI/base/alert
+onready var timer_to_spawn_oxygen = $timerToSpawnOxygen
 
 func _ready():
 	if room_default != "":
